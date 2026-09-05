@@ -1,0 +1,14 @@
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        i = 0
+        j = len(s) - 1
+        skipi = skipj = []
+        while i < j:
+            if s[i] != s[j]:
+                skipi = s[i+1:j+1]
+                skipj = s[i:j]
+                return skipi == skipi[::-1] or skipj == skipj[::-1]
+            i += 1
+            j -= 1
+        
+        return True   
